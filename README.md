@@ -467,4 +467,105 @@ git commit -m "Commit ulang di branch yang benar"
 
 ---
 
-**Selamat berkolaborasi! Happy coding! 🚀**
+# Git Command - Rangkuman Singkat
+
+## Command Paling Sering Dipakai
+
+### Setup & Clone
+```bash
+git clone [url]              # Download repository dari GitHub ke komputer
+git config --global user.name "Nama"   # Set nama untuk commit
+git config --global user.email "email" # Set email untuk commit
+```
+
+### Navigasi Branch
+```bash
+git branch                   # Lihat semua branch lokal, yang ada * adalah branch aktif
+git branch -a                # Lihat semua branch (lokal + remote)
+git checkout [branch-name]   # Pindah ke branch tertentu
+git checkout -b [new-branch] # Buat branch baru dan langsung pindah ke sana
+```
+
+### Update & Sync
+```bash
+git pull origin main         # Download & gabungkan update terbaru dari GitHub
+git merge [branch-name]      # Gabungkan branch lain ke branch aktif sekarang
+```
+
+### Simpan Perubahan (Workflow Utama)
+```bash
+git status                   # Lihat file mana yang berubah/belum di-commit
+git add .                    # Tandai semua file yang berubah untuk di-commit
+git add [file-name]          # Tandai file tertentu saja untuk di-commit
+git commit -m "pesan"        # Simpan perubahan dengan catatan/deskripsi
+git push origin [branch]     # Kirim perubahan ke GitHub
+```
+
+### Stash (Simpan Sementara)
+```bash
+git stash                    # Simpan perubahan sementara tanpa commit
+git stash pop                # Kembalikan perubahan yang di-stash tadi
+```
+
+### Info & History
+```bash
+git log                      # Lihat history commit lengkap
+git log --oneline            # Lihat history commit singkat (satu baris)
+git diff                     # Lihat detail perubahan yang belum di-commit
+git remote -v                # Lihat URL repository di GitHub
+```
+
+### Undo
+```bash
+git reset [file]             # Batalkan git add untuk file tertentu (unstage)
+git reset HEAD~1             # Batalkan commit terakhir (file kembali ke unstaged)
+git checkout -- [file]       # Buang perubahan file, kembali ke versi terakhir commit
+```
+
+---
+
+## Workflow Harian Singkat
+
+```bash
+# 1. Update
+git checkout main
+git pull origin main
+git checkout branch-aditya
+git merge main
+
+# 2. Coding...
+
+# 3. Simpan & Kirim
+git add .
+git commit -m "Deskripsi perubahan"
+git push origin branch-aditya
+```
+
+---
+
+## Penjelasan Singkat Konsep
+
+- **Repository** = Folder project yang ditrack oleh Git
+- **Branch** = Cabang kode terpisah untuk development
+- **Commit** = Save point/snapshot dari perubahan kode
+- **Push** = Upload perubahan ke GitHub
+- **Pull** = Download perubahan dari GitHub
+- **Merge** = Gabungkan dua branch jadi satu
+- **Conflict** = Terjadi kalau file yang sama diubah di dua branch berbeda
+- **Origin** = Nama default untuk remote repository di GitHub
+- **Main/Master** = Branch utama/default repository
+
+---
+
+## Tips Cepat
+
+✅ Selalu `git pull` sebelum mulai coding
+✅ Commit sering dengan pesan yang jelas
+✅ Jangan edit langsung di branch `main`
+✅ Test dulu sebelum `git push`
+✅ Komunikasi dengan tim sebelum merge
+
+❌ Jangan `git push --force` kecuali tahu risikonya
+❌ Jangan commit file yang besar (gambar/video mentah)
+❌ Jangan lupa `git add` sebelum `git commit`
+
