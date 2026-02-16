@@ -30,9 +30,6 @@
             <a class="nav-link" href="#">Pricing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="login/login.php">Login</a>
           </li>
         </ul>
