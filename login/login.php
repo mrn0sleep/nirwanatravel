@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="login.css">
 </head>
   <body>
+
     <div class="container">
         <div class="form-box active" id="login-form">
-            <form action="">
+            <form action="login_register.php" method="post">
                 <h2>Login</h2>
-                <input type="email" name="email" placeholder="EMAIL" required>
+                <input type="email" name="email" maxlength="80" placeholder="EMAIL" required>
                 <input type="password" name="password" placeholder="PASSWORD" required>
-                <button type="submit" name="login">Login</button>
-                <button type="submit" name="rpass">Ganti Password</button>
+                <button type="submit" name="login">Login</button>   
                 <p>Tidak mempunyai akun? <a href="#" onclick="showForm('register-form')">Registrasi</a></p>
             </form>
         </div>
 
         <div class="form-box" id="register-form">
-            <form action="">
+            <form action="login_register.php" method="post">
                 <h2>Registrasi</h2>
                 <input type="text" name="name" placeholder="NAMA" required>
                 <input type="email" name="email" placeholder="EMAIL" required>
