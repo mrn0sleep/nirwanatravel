@@ -1,44 +1,25 @@
 # Nirwana Travel - Git Workflow Guide
 
-## 1. Instalasi Git
+## 1. Setup Awal
 
-Sebelum memulai, pastikan Git sudah terinstal di komputer Anda.
-
-### Linux
-
+### Install Git
 ```bash
-# Fedora
-sudo dnf install git-all
-
-# Ubuntu / Debian
+# Ubuntu/Debian
 sudo apt install git
 
-# Arch Linux
-sudo pacman -S git
+# Fedora
+sudo dnf install git-all
 ```
 
-### Windows & macOS
+**Windows/macOS**: Download dari [git-scm.com](https://git-scm.com/downloads)
 
-1. Download Git dari situs resmi: [https://git-scm.com/downloads](https://git-scm.com/downloads)
-2. Verifikasi instalasi dengan menjalankan perintah berikut di terminal:
-
-```bash
-git --version
-```
-
-3. Konfigurasi Git dengan informasi Anda:
-
+### Konfigurasi
 ```bash
 git config --global user.name "Nama Anda"
 git config --global user.email "email@anda.com"
 ```
 
----
-
-## 2. Clone Repository
-
-Untuk memulai bekerja dengan repository ini, clone terlebih dahulu ke komputer lokal Anda:
-
+### Clone Repository
 ```bash
 git clone https://github.com/mrn0sleep/nirwanatravel.git
 cd nirwanatravel
@@ -46,526 +27,153 @@ cd nirwanatravel
 
 ---
 
-## 3. Aturan Main Branch (SOP Tim)
+## 2. Aturan Branch (PENTING!)
 
-**PENTING:** Dilarang keras mengedit langsung di branch `main`. Setiap anggota tim memiliki branch masing-masing untuk pengembangan.
+**DILARANG** edit langsung di `main`!
 
 ### Pembagian Branch
-
 - **Zhulva**: `branch-zhulva`
 - **Ardan**: `branch-ardan`
 - **Aditya**: `branch-aditya`
 
-### Tutorial Branch: Cara Kerja dengan Branch
-
-#### A. Pindah ke Branch Pribadi Anda
-
-Setelah clone repository, pindah ke branch pribadi Anda:
-
-```bash
-# Cek branch apa saja yang ada
-git branch -a
-
-# Pindah ke branch pribadi Anda (contoh: Aditya)
-git checkout branch-aditya
-```
-
-**Catatan:** Jika branch belum ada di lokal, Git akan otomatis membuat dan mengikuti branch dari remote.
-
-#### B. Cek Branch yang Sedang Aktif
-
-Untuk memastikan Anda berada di branch yang benar:
-
-```bash
-# Lihat semua branch, yang ada tanda * adalah branch aktif
-git branch
-
-# Atau lihat status lengkap
-git status
-```
-
-Output akan menunjukkan:
-```
-On branch branch-aditya
-Your branch is up to date with 'origin/branch-aditya'.
-```
-
-#### C. Update Branch Pribadi Ketika Ada Merge ke Main
-
-Setiap kali ada anggota tim yang melakukan merge ke `main`, Anda perlu mengupdate branch pribadi Anda agar tidak ketinggalan perubahan terbaru.
-
-**Langkah-langkahnya:**
-
-1. **Simpan pekerjaan sementara** (jika ada yang belum selesai):
-
-```bash
-git stash
-```
-
-2. **Pindah ke branch main**:
-
-```bash
-git checkout main
-```
-
-3. **Tarik perubahan terbaru dari GitHub**:
-
-```bash
-git pull origin main
-```
-
-4. **Kembali ke branch pribadi Anda**:
-
-```bash
-git checkout branch-aditya
-```
-
-5. **Gabungkan perubahan dari main ke branch Anda**:
-
-```bash
-git merge main
-```
-
-Sekarang branch Anda sudah ter-update dengan perubahan terbaru dari `main`.
-
-6. **Kembalikan pekerjaan yang di-stash tadi** (jika ada):
-
-```bash
-git stash pop
-```
-
-#### D. Mengatasi Conflict Saat Merge
-
-Jika terjadi conflict saat merge, Git akan memberitahu file mana yang conflict. Anda perlu mengedit file tersebut secara manual:
-
-1. Buka file yang conflict
-2. Cari tanda conflict seperti ini:
-   ```
-   <<<<<<< HEAD
-   kode dari branch Anda
-   =======
-   kode dari main
-   >>>>>>> main
-   ```
-3. Pilih kode yang benar atau gabungkan keduanya
-4. Hapus tanda `<<<<<<<`, `=======`, dan `>>>>>>>`
-5. Simpan file, lalu:
-   ```bash
-   git add .
-   git commit -m "Resolve merge conflict"
-   ```
-
 ---
 
-## 4. Siklus Kerja (Ngoding - Update - Push)
+## 3. Workflow Harian
 
-Ikuti urutan ini setiap kali Anda ingin mulai coding atau setelah ada anggota tim yang melakukan merge ke `main`.
-
-### A. Sebelum Mulai Coding (Sinkronisasi)
-
-Sebelum memulai coding, **selalu pastikan branch Anda ter-update**:
-
+### A. Sebelum Mulai Coding (Update Branch)
 ```bash
-# 1. Pindah ke main
 git checkout main
-
-# 2. Pull update terbaru
 git pull origin main
-
-# 3. Kembali ke branch pribadi
-git checkout branch-aditya
-
-# 4. Merge perubahan dari main
+git checkout branch-aditya  # sesuaikan dengan branch Anda
 git merge main
 ```
 
 ### B. Saat Coding
+Edit file → Test di browser
 
-Setelah berpindah ke branch Anda, lakukan perubahan pada file yang diperlukan dan test secara lokal dengan membuka file `index.html` di browser.
-
-### C. Simpan & Kirim Pekerjaan
-
-Setelah selesai mengerjakan satu fitur atau bagian tertentu:
-
+### C. Simpan & Push
 ```bash
-# 1. Stage semua perubahan
 git add .
-
-# 2. Commit dengan pesan yang jelas
-git commit -m "Deskripsi fitur yang Anda kerjakan"
-
-# 3. Push ke branch pribadi Anda di GitHub
+git commit -m "Deskripsi perubahan yang jelas"
 git push origin branch-aditya
 ```
 
-Ganti `branch-aditya` dengan nama branch Anda masing-masing.
+---
+
+## 4. Merge ke Main
+
+### Via Pull Request (Recommended)
+1. Push branch: `git push origin branch-aditya`
+2. Buka GitHub → Klik **"Compare & pull request"**
+3. Isi deskripsi → **"Create pull request"**
+4. Setelah review → **"Merge pull request"**
+5. **Informasikan ke tim di grup chat**
+
+### Update Setelah Merge
+**Semua anggota tim** wajib update:
+```bash
+git checkout main
+git pull origin main
+git checkout branch-aditya
+git merge main
+```
 
 ---
 
-## 5. Prosedur Merge ke Main
+## 5. Mengatasi Conflict
 
-### A. Cara Merge via Pull Request (Recommended)
-
-Ini adalah cara yang **lebih aman** karena memungkinkan tim untuk mereview kode terlebih dahulu:
-
-1. Push branch Anda ke GitHub:
-   ```bash
-   git push origin branch-aditya
-   ```
-
-2. Buka repository di GitHub: https://github.com/mrn0sleep/nirwanatravel
-
-3. Klik tombol **"Compare & pull request"** yang muncul
-
-4. Isi deskripsi Pull Request:
-   - Jelaskan fitur/perubahan yang dibuat
-   - Mention anggota tim jika perlu review
-
-5. Klik **"Create pull request"**
-
-6. Tunggu review dari tim, lalu klik **"Merge pull request"**
-
-7. **Informasikan ke tim** bahwa sudah ada merge baru ke `main`
-
-### B. Cara Merge via Terminal (Alternatif)
-
-Jika sudah yakin dan tidak perlu review:
-
+Jika terjadi conflict saat merge:
 ```bash
-# 1. Pindah ke branch main
-git checkout main
+# 1. Buka file yang conflict
+# 2. Cari dan edit bagian:
+#    <<<<<<< HEAD
+#    kode Anda
+#    =======
+#    kode dari main
+#    >>>>>>> main
+# 3. Pilih/gabungkan kode yang benar
+# 4. Hapus tanda <<<<<<<, =======, >>>>>>>
+# 5. Simpan file
 
-# 2. Tarik kode terbaru dari GitHub
-git pull origin main
-
-# 3. Gabungkan branch fitur Anda ke main
-git merge branch-aditya
-
-# 4. Push hasil gabungan ke GitHub
-git push origin main
-
-# 5. Informasikan ke tim di grup chat
-```
-
-### C. Update Branch Setelah Merge
-
-Setelah merge selesai, **semua anggota tim** harus mengupdate branch mereka:
-
-```bash
-# 1. Pindah ke main
-git checkout main
-
-# 2. Pull update terbaru
-git pull origin main
-
-# 3. Kembali ke branch pribadi
-git checkout branch-zhulva  # sesuaikan dengan branch Anda
-
-# 4. Merge perubahan dari main
-git merge main
-
-# 5. Lanjut coding!
+git add .
+git commit -m "Resolve merge conflict"
 ```
 
 ---
 
 ## 6. Command Cheat Sheet
 
-### Navigasi Branch
-
+### Navigasi
 ```bash
-# Lihat semua branch
-git branch -a
-
-# Pindah ke branch tertentu
-git checkout nama-branch
-
-# Buat branch baru dan pindah ke sana
-git checkout -b nama-branch-baru
-
-# Cek branch yang sedang aktif
-git branch
+git branch              # Lihat branch aktif (ada tanda *)
+git checkout [branch]   # Pindah branch
+git status              # Cek status file
 ```
 
 ### Update & Sync
-
 ```bash
-# Pull update dari remote
-git pull origin main
-
-# Merge branch lain ke branch aktif
-git merge nama-branch
-
-# Stash pekerjaan sementara
-git stash
-
-# Kembalikan stash
-git stash pop
+git pull origin main    # Download update terbaru
+git merge [branch]      # Gabungkan branch
+git stash               # Simpan sementara
+git stash pop           # Kembalikan simpanan
 ```
 
-### Commit & Push
-
+### Simpan Perubahan
 ```bash
-# Stage perubahan
-git add .
-# atau stage file tertentu
-git add nama-file.html
-
-# Commit
-git commit -m "Pesan commit"
-
-# Push ke remote
-git push origin nama-branch
-```
-
-### Info & Status
-
-```bash
-# Cek status file
-git status
-
-# Lihat history commit
-git log
-
-# Lihat perubahan yang belum di-commit
-git diff
+git add .               # Stage semua file
+git commit -m "pesan"   # Commit dengan deskripsi
+git push origin [branch] # Push ke GitHub
 ```
 
 ---
 
-## 7. Workflow Harian Tim
+## 7. Troubleshooting
 
-### Skenario 1: Aditya Mulai Coding di Pagi Hari
-
+### Error: "Your local changes would be overwritten"
 ```bash
-# 1. Buka terminal, masuk ke folder project
-cd ~/Documents/Webprog/nirwanatravel
-
-# 2. Update main (cek apakah ada perubahan semalam)
-git checkout main
-git pull origin main
-
-# 3. Pindah ke branch pribadi dan update
-git checkout branch-aditya
-git merge main
-
-# 4. Mulai coding...
-# Edit file, test di browser
-
-# 5. Selesai coding, commit & push
-git add .
-git commit -m "Add fitur booking form"
-git push origin branch-aditya
-```
-
-### Skenario 2: Zhulva Merge ke Main, Tim Lain Harus Update
-
-**Zhulva:**
-```bash
-# Setelah fitur selesai, buat Pull Request di GitHub
-git push origin branch-zhulva
-# Lalu buat PR di website GitHub
-```
-
-**Aditya & Ardan (setelah Zhulva merge):**
-```bash
-# 1. Update main
-git checkout main
-git pull origin main
-
-# 2. Update branch pribadi
-git checkout branch-aditya  # atau branch-ardan
-git merge main
-
-# 3. Lanjut coding
-```
-
-### Skenario 3: Conflict Saat Merge
-
-```bash
-# Saat merge muncul conflict
-git checkout main
-git pull origin main
-git checkout branch-aditya
-git merge main
-
-# Output: CONFLICT (content): Merge conflict in index.html
-
-# 1. Buka file yang conflict (index.html)
-# 2. Edit manual, pilih kode yang benar
-# 3. Hapus tanda <<<<<<, =======, >>>>>>>
-# 4. Simpan file
-
-# 5. Commit hasil resolve
-git add .
-git commit -m "Resolve conflict in index.html"
-```
-
----
-
-## 8. Ringkasan Workflow
-
-1. **Clone repository** (hanya sekali di awal)
-2. **Pindah ke branch pribadi** Anda
-3. **Update branch dari main** sebelum mulai coding
-4. **Coding & test** fitur Anda
-5. **Commit & push** ke branch pribadi Anda di GitHub
-6. **Buat Pull Request** untuk merge ke `main`
-7. **Informasikan tim** setelah merge selesai
-8. **Tim lain update branch** mereka dari `main`
-9. **Ulangi** dari langkah 3
-
----
-
-## 9. Tips & Best Practices
-
-- **Komunikasi:** Selalu informasikan di grup chat ketika akan/sudah merge ke `main`
-- **Commit Sering:** Jangan tunggu sampai selesai semua, commit per fitur kecil
-- **Pesan Commit Jelas:** Tulis deskripsi yang menjelaskan apa yang diubah
-- **Test Sebelum Push:** Selalu test di browser lokal dulu sebelum push
-- **Update Rutin:** Biasakan update dari `main` setiap mulai coding
-- **Conflict:** Jika ragu saat resolve conflict, tanya tim dulu
-- **Backup:** Git sudah otomatis backup, tapi lebih aman jika code penting di-copy dulu
-
----
-
-## 10. Troubleshooting
-
-### Error: "Your local changes would be overwritten by merge"
-
-```bash
-# Solusi: Stash perubahan dulu
 git stash
 git pull origin main
 git stash pop
-```
-
-### Error: "fatal: refusing to merge unrelated histories"
-
-```bash
-# Solusi: Force merge (hati-hati!)
-git merge main --allow-unrelated-histories
 ```
 
 ### Lupa di Branch Mana
-
 ```bash
-# Cek branch aktif
-git branch
-# Branch yang ada tanda * adalah branch aktif
+git branch  # Branch dengan * adalah branch aktif
 ```
 
-### Salah Commit di Branch Main
-
+### Salah Commit di Main
 ```bash
-# JANGAN PANIC! Bisa di-undo
-git reset HEAD~1  # undo commit terakhir
-git checkout branch-aditya  # pindah ke branch yang benar
+git reset HEAD~1                # Undo commit
+git checkout branch-aditya      # Pindah ke branch benar
 git add .
-git commit -m "Commit ulang di branch yang benar"
+git commit -m "Commit ulang"
 ```
 
 ---
 
-# Git Command - Rangkuman Singkat
+## 8. Tips Penting
 
-## Command Paling Sering Dipakai
+✅ **DO:**
+- Selalu `git pull` sebelum coding
+- Commit sering dengan pesan jelas
+- Test sebelum push
+- Informasikan tim saat merge
 
-### Setup & Clone
-```bash
-git clone [url]              # Download repository dari GitHub ke komputer
-git config --global user.name "Nama"   # Set nama untuk commit
-git config --global user.email "email" # Set email untuk commit
-```
-
-### Navigasi Branch
-```bash
-git branch                   # Lihat semua branch lokal, yang ada * adalah branch aktif
-git branch -a                # Lihat semua branch (lokal + remote)
-git checkout [branch-name]   # Pindah ke branch tertentu
-git checkout -b [new-branch] # Buat branch baru dan langsung pindah ke sana
-```
-
-### Update & Sync
-```bash
-git pull origin main         # Download & gabungkan update terbaru dari GitHub
-git merge [branch-name]      # Gabungkan branch lain ke branch aktif sekarang
-```
-
-### Simpan Perubahan (Workflow Utama)
-```bash
-git status                   # Lihat file mana yang berubah/belum di-commit
-git add .                    # Tandai semua file yang berubah untuk di-commit
-git add [file-name]          # Tandai file tertentu saja untuk di-commit
-git commit -m "pesan"        # Simpan perubahan dengan catatan/deskripsi
-git push origin [branch]     # Kirim perubahan ke GitHub
-```
-
-### Stash (Simpan Sementara)
-```bash
-git stash                    # Simpan perubahan sementara tanpa commit
-git stash pop                # Kembalikan perubahan yang di-stash tadi
-```
-
-### Info & History
-```bash
-git log                      # Lihat history commit lengkap
-git log --oneline            # Lihat history commit singkat (satu baris)
-git diff                     # Lihat detail perubahan yang belum di-commit
-git remote -v                # Lihat URL repository di GitHub
-```
-
-### Undo
-```bash
-git reset [file]             # Batalkan git add untuk file tertentu (unstage)
-git reset HEAD~1             # Batalkan commit terakhir (file kembali ke unstaged)
-git checkout -- [file]       # Buang perubahan file, kembali ke versi terakhir commit
-```
+❌ **DON'T:**
+- Edit langsung di branch `main`
+- Lupa `git add` sebelum commit
+- Push tanpa test
+- `git push --force` (kecuali tahu risikonya)
 
 ---
 
-## Workflow Harian Singkat
+## Quick Reference
 
 ```bash
-# 1. Update
-git checkout main
-git pull origin main
-git checkout branch-aditya
-git merge main
-
-# 2. Coding...
-
-# 3. Simpan & Kirim
-git add .
-git commit -m "Deskripsi perubahan"
+# Workflow lengkap
+git checkout main && git pull origin main
+git checkout branch-aditya && git merge main
+# [Coding...]
+git add . && git commit -m "pesan"
 git push origin branch-aditya
 ```
-
----
-
-## Penjelasan Singkat Konsep
-
-- **Repository** = Folder project yang ditrack oleh Git
-- **Branch** = Cabang kode terpisah untuk development
-- **Commit** = Save point/snapshot dari perubahan kode
-- **Push** = Upload perubahan ke GitHub
-- **Pull** = Download perubahan dari GitHub
-- **Merge** = Gabungkan dua branch jadi satu
-- **Conflict** = Terjadi kalau file yang sama diubah di dua branch berbeda
-- **Origin** = Nama default untuk remote repository di GitHub
-- **Main/Master** = Branch utama/default repository
-
----
-
-## Tips Cepat
-
-✅ Selalu `git pull` sebelum mulai coding
-✅ Commit sering dengan pesan yang jelas
-✅ Jangan edit langsung di branch `main`
-✅ Test dulu sebelum `git push`
-✅ Komunikasi dengan tim sebelum merge
-
-❌ Jangan `git push --force` kecuali tahu risikonya
-❌ Jangan commit file yang besar (gambar/video mentah)
-❌ Jangan lupa `git add` sebelum `git commit`
-

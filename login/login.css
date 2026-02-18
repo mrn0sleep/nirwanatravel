@@ -91,3 +91,13 @@ p a:hover {
     color: #5f7de0;
 
 }
+
+.error_massage {
+    padding: 12px;
+    background: wheat;
+    border-radius: 6px;
+    font-size: 16px;
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}

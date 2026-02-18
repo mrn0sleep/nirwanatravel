@@ -31,4 +31,32 @@ if (isset($_POST['register'])) {
     header("Location: login.php");
     exit();
 }
+
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            $s_SESSION['name']= $user['name'];
+            $s_SESSION['email'] = $emai['email'];
+
+            if($user['role'] === 'admin') {
+                header("Location ../admin/admin_dashboard.php");
+            }
+            else {header("location ../main.php");}
+        }
+        exit();
+    }
+    $_SESSION['login_error'] = 'Password atau email salah';
+    $_SERVER['active_form'] = 'login';
+    header("Location ../main.php");
+    exit();
+}
 ?>
