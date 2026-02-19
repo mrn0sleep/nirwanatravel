@@ -31,7 +31,7 @@ if (isset($_POST['register'])) {
     header("Location: login.php");
     exit();
 }
-
+//melakukan penghijauan github
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
