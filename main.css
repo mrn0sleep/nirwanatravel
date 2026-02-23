@@ -1,0 +1,103 @@
+/* FONT GLOBAL */
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+/* WRAPPER BACKGROUND HEADER */
+.header-wrap {
+  width: 100%;
+  height: 80vh;
+  min-height: 480px;
+  background-image: url('img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* LOGO */
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* NAVBAR TAMPILAN DESAIN PDF */
+.nav-link {
+  color: #1a3c8f !important;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  border-bottom: 2px solid #1a3c8f;
+}
+
+/* TOMBOL DESAIN */
+.btn-daftar {
+  padding: 6px 20px;
+  border-radius: 40px;
+  border: 2px solid #0095ff;
+  background: #fff;
+  color: #0095ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-daftar:hover {
+  background: #e6f3ff;
+}
+
+.btn-masuk {
+  padding: 6px 20px;
+  border-radius: 40px;
+  background: #0095ff;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-masuk:hover {
+  background: #007acc;
+}
+
+.btn-user {
+  padding: 6px 18px;
+  background: #0095ff;
+  color: #fff;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* HERO LOGO */
+.hero-gambar {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-gambar img {
+  width: 500px;
+  max-width: 75%;
+  filter: drop-shadow(0 0 14px rgba(255,255,255,0.8));
+}
+
+/* MOBILE MENU */
+@media (max-width: 991px) {
+  nav.navbar {
+    background: rgba(255,255,255,0.97) !important;
+    padding-bottom: 12px;
+  }
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 600px) {
+  .hero-gambar img {
+    width: 260px;
+  }
+}
