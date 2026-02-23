@@ -31,7 +31,7 @@
     }
 
     .navbar-brand img {
-      width: 50px;
+      width: 51px;
       height: 50px;
       border-radius: 50%;
       object-fit: contain;
@@ -215,7 +215,7 @@
         <!-- Tombol kanan — ganti kondisi dengan PHP session -->
         <div class="d-flex gap-2">
           <!-- Belum login -->
-          <a href="#" class="btn-daftar">Daftar</a>
+          <a href="#" class="btn-daftar">Daftar Isi</a>
           <a href="#" class="btn-login">Login</a>
 
           <!-- Sudah login — hapus dua baris atas, uncomment ini
