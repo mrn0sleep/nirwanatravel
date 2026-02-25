@@ -1,103 +1,230 @@
-/* FONT GLOBAL */
+/* ================================================
+   main.css — Nirwana Tour & Travel
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 * {
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* WRAPPER BACKGROUND HEADER */
+body {
+  background-color: #f4f6fb;
+}
+
+/* ------------------------------------------------
+   NAVBAR
+   ------------------------------------------------ */
+.navbar-nirwana {
+  background: #ffffff !important;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  border-bottom: 2px solid #d6e4ff;
+  box-shadow: 0 2px 8px rgba(26, 60, 143, 0.07);
+}
+
+/* ------------------------------------------------
+   LOGO
+   ------------------------------------------------ */
+.logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ------------------------------------------------
+   MENU LINK
+   ------------------------------------------------ */
+.navbar-nirwana .nav-link {
+  color: #2c4a9e !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.navbar-nirwana .nav-link:hover {
+  background: #eef3ff;
+  color: #1a3c8f !important;
+}
+
+.navbar-nirwana .nav-link.active {
+  background: #eef3ff;
+  color: #1a3c8f !important;
+  font-weight: 600;
+}
+
+/* Dropdown */
+.navbar-nirwana .dropdown-menu {
+  border: 1px solid #d6e4ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(26, 60, 143, 0.1);
+  padding: 6px;
+}
+
+.navbar-nirwana .dropdown-item {
+  border-radius: 6px;
+  font-size: 14px;
+  color: #2c4a9e;
+  padding: 7px 14px;
+  transition: background 0.15s;
+}
+
+.navbar-nirwana .dropdown-item:hover {
+  background: #eef3ff;
+  color: #1a3c8f;
+}
+
+/* ------------------------------------------------
+   TOMBOL DAFTAR
+   ------------------------------------------------ */
+.btn-daftar {
+  padding: 7px 20px;
+  border-radius: 8px;
+  border: 1.5px solid #2c4a9e;
+  background: #fff;
+  color: #2c4a9e;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.btn-daftar:hover {
+  background: #eef3ff;
+  color: #1a3c8f;
+}
+
+/* ------------------------------------------------
+   TOMBOL LOGIN
+   ------------------------------------------------ */
+.btn-masuk {
+  padding: 7px 20px;
+  border-radius: 8px;
+  background: #2c4a9e;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.btn-masuk:hover {
+  background: #1a3c8f;
+  color: #fff;
+}
+
+/* ------------------------------------------------
+   TOMBOL USER
+   ------------------------------------------------ */
+.btn-user {
+  padding: 7px 16px;
+  background: #2c4a9e;
+  color: #fff;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.18s;
+}
+
+.btn-user:hover {
+  background: #1a3c8f;
+  color: #fff;
+}
+
+/* ------------------------------------------------
+   HERO SECTION
+   ------------------------------------------------ */
 .header-wrap {
   width: 100%;
-  height: 80vh;
-  min-height: 480px;
+  height: 78vh;
+  min-height: 460px;
+  padding-top: 90px;
   background-image: url('img/bg.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-/* LOGO */
-.logo-img {
-  height: 60px;
-  object-fit: contain;
+/* Overlay ringan agar konten lebih terbaca */
+.header-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 30, 80, 0.18);
 }
 
-/* NAVBAR TAMPILAN DESAIN PDF */
-.nav-link {
-  color: #1a3c8f !important;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.nav-link.active {
-  font-weight: 600;
-  border-bottom: 2px solid #1a3c8f;
-}
-
-/* TOMBOL DESAIN */
-.btn-daftar {
-  padding: 6px 20px;
-  border-radius: 40px;
-  border: 2px solid #0095ff;
-  background: #fff;
-  color: #0095ff;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.btn-daftar:hover {
-  background: #e6f3ff;
-}
-
-.btn-masuk {
-  padding: 6px 20px;
-  border-radius: 40px;
-  background: #0095ff;
-  color: #fff;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.btn-masuk:hover {
-  background: #007acc;
-}
-
-.btn-user {
-  padding: 6px 18px;
-  background: #0095ff;
-  color: #fff;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-/* HERO LOGO */
+/* ------------------------------------------------
+   GAMBAR HERO
+   ------------------------------------------------ */
 .hero-gambar {
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 100%;
+  padding: 0 16px;
+  z-index: 1;
 }
 
 .hero-gambar img {
-  width: 500px;
-  max-width: 75%;
-  filter: drop-shadow(0 0 14px rgba(255,255,255,0.8));
+  width: 460px;
+  max-width: 68%;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.18));
 }
 
-/* MOBILE MENU */
+/* ------------------------------------------------
+   CANVAS KONTEN
+   ------------------------------------------------ */
+.page-canvas {
+  background: #f4f6fb;
+  min-height: 120px;
+  padding: 36px 0;
+}
+
+/* ------------------------------------------------
+   MOBILE
+   ------------------------------------------------ */
 @media (max-width: 991px) {
-  nav.navbar {
-    background: rgba(255,255,255,0.97) !important;
-    padding-bottom: 12px;
+  .navbar-nirwana .navbar-collapse.show {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    border: 1px solid #d6e4ff;
+    box-shadow: 0 4px 12px rgba(26, 60, 143, 0.08);
+  }
+
+  .header-wrap {
+    padding-top: 105px;
   }
 }
 
-/* RESPONSIVE HERO */
-@media (max-width: 600px) {
+@media (max-width: 576px) {
+  .logo-img {
+    height: 42px;
+  }
+
+  .header-wrap {
+    height: 56vh;
+    min-height: 320px;
+    padding-top: 90px;
+  }
+
   .hero-gambar img {
-    width: 260px;
+    width: 220px;
   }
 }
