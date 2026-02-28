@@ -55,6 +55,71 @@ body {
   background: #eef3ff;
   color: #1a3c8f !important;
 }
+/*Kanan atas wok*/
+
+.login-btn-01 {
+    height: 40px;
+    padding: 0 35px;
+    background: transparent;
+    border: 2px solid #000000;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+
+}
+
+.profile-box.show .profile-dropdown {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 85px;
+  right: 100px;
+  padding: 10px;
+  background-color: #f0e8ff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.profile-dropdown a{
+  padding: 6px 12px;
+  border-radius: 4px;
+  color:#000000;
+  font-weight: 500;
+  margin: 2px 0;
+  transition: .2s;
+}
+
+.profile-dropdown a:hover{
+  background: #7489ff;
+}
 
 .navbar-nirwana .nav-link.active {
   background: #eef3ff;

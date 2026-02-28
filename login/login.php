@@ -30,7 +30,6 @@ function isActiveForm($formName, $activeForm) {
     <link rel="stylesheet" href="login.css">
 </head>
   <body>
-
     <div class="container">
         <div class="form-box <?= isActiveForm ('login', $activeForm); ?>" id="login-form">
             <form action="login_register.php" method="post">

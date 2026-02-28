@@ -53,3 +53,9 @@ window.addEventListener('scroll', () => {
     rt = setTimeout(() => { current = Math.min(current, maxIndex()); buildDots(); goTo(current); }, 150);
   });
 })();
+
+/*Kanan atas wok*/
+const profileBox = document.querySelector('.profile-box');
+const avatarCircle = document.querySelector('.avatar-circle');
+
+avatarCircle.addEventListener('click', () => profileBox.classList.toggle('show'));
