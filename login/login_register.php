@@ -48,7 +48,7 @@ if (isset($_POST['login'])) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['name']= $user['name'];
-            $_SESSION['email'] = $emai['email'];
+            $_SESSION['email'] = $user['email'];
 
             if($user['role'] === 'admin') {
                 header("Location: ../admin/admin_dashboard.php");
@@ -56,8 +56,8 @@ if (isset($_POST['login'])) {
             else {
                 header("location: ../index.php");
                 }
-        }
-        exit();
+                exit();
+        };
     }
     $_SESSION['login_error'] = 'Password atau email salah';
     $_SESSION['active_form'] = 'login';
