@@ -2,16 +2,16 @@
 
 session_start();
 
-$erros = [
-    'login' => $_SESSION['login_error'] ??'', 
-    'register' => $_SESSION[''] ??''
+$errors = [
+    'login' => $_SESSION['login_error'] ?? '', 
+    'register' => $_SESSION['register_error'] ?? ''
 ];
 $activeForm = $_SESSION['active_form'] ?? 'login';
 
 session_unset();
 
 function showError($error){
-    return !empty($error) ? "<p class='erorr-massage'> $error</p>" : '';
+    return !empty($error) ? "<p class='error-massage'> $error</p>" : '';
 }
 
 function isActiveForm($formName, $activeForm) {
@@ -34,7 +34,7 @@ function isActiveForm($formName, $activeForm) {
         <div class="form-box <?= isActiveForm ('login', $activeForm); ?>" id="login-form">
             <form action="login_register.php" method="post">
                 <h2>Login</h2>
-                <?= "showError"($errors['login']); ?>
+                <?= showError($errors['login']); ?>
                 <input type="email" name="email" maxlength="80" placeholder="EMAIL" required>
                 <input type="password" name="password" placeholder="PASSWORD" required>
                 <button type="submit" name="login">Login</button>   
@@ -45,7 +45,7 @@ function isActiveForm($formName, $activeForm) {
         <div class="form-box <?= isActiveForm ('register', $activeForm); ?>" id="register-form">
             <form action="login_register.php" method="post">
                 <h2>Registrasi</h2>
-                <?= "showError"($errors['register']); ?>
+                <?= showError($errors['register']); ?>
                 <input type="text" name="name" placeholder="NAMA" required>
                 <input type="email" name="email" placeholder="EMAIL" required>
                 <input type="password" name="password" placeholder="PASSWORD" required>
