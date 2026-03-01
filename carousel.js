@@ -57,5 +57,29 @@ window.addEventListener('scroll', () => {
 /*Kanan atas wok*/
 const profileBox = document.querySelector('.profile-box');
 const avatarCircle = document.querySelector('.avatar-circle');
+const loginForm = document.getElementById('loginForm');
 
-avatarCircle.addEventListener('click', () => profileBox.classList.toggle('show'));
+if (window.userData && window.userData.isLoggedIn) {
+    console.log('User is logged in'); // test
+    profileBox.style.display = 'block';
+    avatarCircle.textContent = window.userData.avatarLetter;
+    if (loginForm) loginForm.style.display = 'none';
+} else {
+    console.log('User not logged in'); // test
+    profileBox.style.display = 'none';
+    if (loginForm) loginForm.style.display = 'block';
+}
+
+if (avatarCircle && profileBox) {
+    avatarCircle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent bubbling
+        profileBox.classList.toggle('show');
+    });
+    
+    // Close dropdown kalau klik di luar
+    document.addEventListener('click', (e) => {
+        if (!profileBox.contains(e.target)) {
+            profileBox.classList.remove('show');
+        }
+    });
+}

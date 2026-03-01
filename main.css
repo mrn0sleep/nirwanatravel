@@ -55,7 +55,7 @@ body {
   background: #eef3ff;
   color: #1a3c8f !important;
 }
-/*Kanan atas wok*/
+/*--------------------Kanan atas wok-----------------*/
 
 .login-btn-01 {
     height: 40px;
@@ -70,56 +70,66 @@ body {
     transition: .5s;
 }
 
+.profile-box {
+    position: relative;
+}
+
+/* Avatar Circle */
 .avatar-circle {
     width: 40px;
     height: 40px;
     background: #000000;
     border-radius: 50%;
-    line-height: 40px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 25px;
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center ;
-
+    transition: background 0.2s;
 }
 
-.profile-box.show .profile-dropdown {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+.avatar-circle:hover {
+    background: #333;
 }
 
+/* Dropdown - Default Hidden */
 .profile-dropdown {
-  position: absolute;
-  top: 85px;
-  right: 100px;
-  padding: 10px;
-  background-color: #f0e8ff;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  transform: translateY(20px);
-  opacity: 0;
-  pointer-events: none;
-  transition: .5s;
+    display: none; /* Default hidden */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #d6e4ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 8px;
+    margin-top: 8px;
+    min-width: 150px;
+    z-index: 1000;
 }
 
-.profile-dropdown a{
-  padding: 6px 12px;
-  border-radius: 4px;
-  color:#000000;
-  font-weight: 500;
-  margin: 2px 0;
-  transition: .2s;
+/* Show Dropdown When 'show' Class Active */
+.profile-box.show .profile-dropdown {
+    display: block; /* ← INI YANG PENTING! */
 }
 
-.profile-dropdown a:hover{
-  background: #7489ff;
+.profile-dropdown a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #000000;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
 }
+
+.profile-dropdown a:hover {
+    background: #7489ff;
+    color: white;
+}
+
 
 .navbar-nirwana .nav-link.active {
   background: #eef3ff;

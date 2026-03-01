@@ -15,7 +15,7 @@ if (isset($_POST['register'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $_SESSION['register_error'] = 'Email is already registered!';
+        $_SESSION['register_error'] = 'Email Sudah di Registrasi';
         $_SESSION['active_form'] = 'register';
         header("Location: login.php");
         exit();
@@ -34,7 +34,7 @@ if (isset($_POST['register'])) {
 
 
 }
-//melakukan penghijauan github
+
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];

@@ -1,3 +1,9 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['name']) && isset($_SESSION['email']);
+$avatarLetter = $isLoggedIn ? strtoupper(substr($_SESSION['name'], 0, 1)) : 'G';
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -38,14 +44,14 @@
         </li>
       </ul>
       <div class="d-flex gap-2 align-items-center">
-        <div class="profile-box" style="display: none">
-          <div class="avatar-circle">C</div>
+        <div class="profile-box" id="profilebox"style="display: none">
+          <div class="avatar-circle" id="avatarCircle">C</div>
           <div class="profile-dropdown">
-            <a href="#">Akun saya</a>
-            <a href="#">Logout</a>
+            <a href="#">Pesanan saya</a>
+            <a href="/nirwanatravel/login/logout.php">Logout</a>
           </div>
         </div>
-          <form action="login/login.php">
+          <form action="login/login.php" id="loginForm" style="display: none;">
              <button type="submit" class="login-btn-01">Login</button>
           </form>
       </div>
@@ -112,8 +118,15 @@
   </section>
 
 </div><!-- /page-canvas -->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="carousel.js" defer></script>
+<script>
+    window.userData = {
+        isLoggedIn: <?= json_encode($isLoggedIn) ?>,
+        avatarLetter: "<?= $avatarLetter ?>"
+    };
+    
+    console.log('User Data:', window.userData); 
+</script>
+<script src="carousel.js"></script>
 </body>
 </html>
