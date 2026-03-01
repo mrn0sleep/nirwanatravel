@@ -38,9 +38,16 @@
         </li>
       </ul>
       <div class="d-flex gap-2 align-items-center">
-          <a href="login/login.php" class="btn-daftar">Daftar</a>
-          <a href="login/login.php" class="btn-masuk">Login</a>
-          </a>
+        <div class="profile-box" style="display: none">
+          <div class="avatar-circle">C</div>
+          <div class="profile-dropdown">
+            <a href="#">Akun saya</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+          <form action="login/login.php">
+             <button type="submit" class="login-btn-01">Login</button>
+          </form>
       </div>
     </div>
   </div>
