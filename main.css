@@ -73,6 +73,24 @@ body {
 .profile-box {
     position: relative;
 }
+/* ini buat nama ui*/
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px 5px 5px;
+    background: #e8f0ff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.username-display {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c4a9e;
+    white-space: nowrap;
+}
 
 /* Avatar Circle */
 .avatar-circle {

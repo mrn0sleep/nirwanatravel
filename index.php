@@ -45,7 +45,10 @@ $avatarLetter = $isLoggedIn ? strtoupper(substr($_SESSION['name'], 0, 1)) : 'G';
       </ul>
       <div class="d-flex gap-2 align-items-center">
         <div class="profile-box" id="profilebox"style="display: none">
-          <div class="avatar-circle" id="avatarCircle">C</div>
+         <div class="profile-header">
+        <div class="avatar-circle" id="avatarCircle">C</div>
+          <span class="username-display" id="usernameDisplay">Username</span>
+          </div> 
           <div class="profile-dropdown">
             <a href="#">Pesanan saya</a>
             <a href="/nirwanatravel/login/logout.php">Logout</a>
@@ -122,7 +125,8 @@ $avatarLetter = $isLoggedIn ? strtoupper(substr($_SESSION['name'], 0, 1)) : 'G';
 <script>
     window.userData = {
         isLoggedIn: <?= json_encode($isLoggedIn) ?>,
-        avatarLetter: "<?= $avatarLetter ?>"
+        avatarLetter: "<?= $avatarLetter ?>",
+        userName: "<?= $isLoggedIn ? $_SESSION['name'] : '' ?>"
     };
     
     console.log('User Data:', window.userData); 

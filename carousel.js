@@ -57,12 +57,17 @@ window.addEventListener('scroll', () => {
 /*Kanan atas wok*/
 const profileBox = document.querySelector('.profile-box');
 const avatarCircle = document.querySelector('.avatar-circle');
+const usernameDisplay = document.getElementById('usernameDisplay');
 const loginForm = document.getElementById('loginForm');
 
 if (window.userData && window.userData.isLoggedIn) {
     console.log('User is logged in'); // test
     profileBox.style.display = 'block';
     avatarCircle.textContent = window.userData.avatarLetter;
+
+    const firstName = window.userData.userName.split(' ')[0];
+    usernameDisplay.textContent = firstName;
+
     if (loginForm) loginForm.style.display = 'none';
 } else {
     console.log('User not logged in'); // test
@@ -71,8 +76,9 @@ if (window.userData && window.userData.isLoggedIn) {
 }
 
 if (avatarCircle && profileBox) {
-    avatarCircle.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent bubbling
+  const profileHeader = document.querySelector('.profile-header');
+    profileHeader.addEventListener('click', (e) => {
+        e.stopPropagation();
         profileBox.classList.toggle('show');
     });
     
