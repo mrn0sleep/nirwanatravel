@@ -22,8 +22,20 @@ $base_url = "http://localhost/nirwanatravel/";
     /* ===== HERO CTA STRIP ===== */
     .hero-cta-strip {
       background: #f4f5f7;
+      position: relative;
+      z-index: 2; /* ini kunci */
+    }
+
+    .hero-gambar {
+      height: 290px;
+      overflow: hidden;
+    }
+    
+    .hero-cta-strip {
+      background: #f4f5f7;
       border-bottom: 1px solid #eef0f4;
-      padding: 36px 0 32px;
+      padding: 32px 0 32px;
+      margin-top: -120px; 
       text-align: center;
     }
     .hero-cta-strip h2 {
@@ -335,7 +347,7 @@ $base_url = "http://localhost/nirwanatravel/";
           <a class="nav-link" href="kontak.php">Hubungi Kami</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tentang.php">Tentang Kami</a>
+          <a class="nav-link" href="tentang/tentang_kami.php">Tentang Kami</a>
         </li>
       </ul>
       <div class="d-flex gap-2 align-items-center">
@@ -461,20 +473,20 @@ $base_url = "http://localhost/nirwanatravel/";
       <p class="section-sub">Berpengalaman lebih dari 10 tahun di bidang travel, selalu memberikan layanan terbaik untuk kenyamanan perjalanan Anda dan Keluarga.</p>
     </div>
 
-    <?php
-    $jadwal = [
-      ['tgl'=>'15', 'bln'=>'Sep 2026', 'nama'=>'Paket Wisata Eropa 10 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Grand Sahid',     'hotel_mak'=>'Pullman Zamzam', 'harga'=>'32,9', 'seat'=>true],
-      ['tgl'=>'20', 'bln'=>'Jun 2026', 'nama'=>'Paket Wisata Jepang 9 Hari',     'badges'=>['Transit'],         'hotel_mad'=>'Dormy Inn',        'hotel_mak'=>'Mercure Tokyo',  'harga'=>'24,9', 'seat'=>true],
-      ['tgl'=>'01', 'bln'=>'Sep 2026', 'nama'=>'Paket Bali Honeymoon 7 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Kempinski Nusa Dua','hotel_mak'=>'The Layar',    'harga'=>'31,8', 'seat'=>true],
-      ['tgl'=>'01', 'bln'=>'Okt 2026', 'nama'=>'Paket Lombok Sumbawa 8 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Qunci Villas',     'hotel_mak'=>'Amanjiwo',       'harga'=>'31,8', 'seat'=>true],
-      ['tgl'=>'18', 'bln'=>'Jun 2026', 'nama'=>'Paket Turki Murah 10 Hari',      'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Delphin Palace',   'hotel_mak'=>'CVK Park Bosphorus','harga'=>'28,9','seat'=>true],
-      ['tgl'=>'04', 'bln'=>'Jul 2026', 'nama'=>'Paket Raja Ampat 6 Hari',        'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Papua Paradise',   'hotel_mak'=>'Misool Eco Resort','harga'=>'28,9','seat'=>true],
-      ['tgl'=>'04', 'bln'=>'Sep 2026', 'nama'=>'Paket Korea Selatan 9 Hari',     'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Lotte City Hotel', 'hotel_mak'=>'Shilla Stay',    'harga'=>'28,9', 'seat'=>true],
-      ['tgl'=>'18', 'bln'=>'Jun 2026', 'nama'=>'Paket Dubai Mewah 8 Hari',       'badges'=>['Transit','Tour TH'],'hotel_mad'=>'Address Downtown','hotel_mak'=>'Atlantis Palm',  'harga'=>'28,5', 'seat'=>true],
-    ];
-    foreach (array_slice($jadwal, 0, 3) as $j): ?>
-      $isTrans = in_array('Transit', $j['badges']);
-    ?>
+<?php
+$jadwal = [
+  ['tgl'=>'15', 'bln'=>'Sep 2026', 'nama'=>'Paket Wisata Eropa 10 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Grand Sahid',     'hotel_mak'=>'Pullman Zamzam', 'harga'=>'32,9', 'seat'=>true],
+  ['tgl'=>'20', 'bln'=>'Jun 2026', 'nama'=>'Paket Wisata Jepang 9 Hari',     'badges'=>['Transit'],         'hotel_mad'=>'Dormy Inn',        'hotel_mak'=>'Mercure Tokyo',  'harga'=>'24,9', 'seat'=>true],
+  ['tgl'=>'01', 'bln'=>'Sep 2026', 'nama'=>'Paket Bali Honeymoon 7 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Kempinski Nusa Dua','hotel_mak'=>'The Layar',    'harga'=>'31,8', 'seat'=>true],
+  ['tgl'=>'01', 'bln'=>'Okt 2026', 'nama'=>'Paket Lombok Sumbawa 8 Hari',    'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Qunci Villas',     'hotel_mak'=>'Amanjiwo',       'harga'=>'31,8', 'seat'=>true],
+  ['tgl'=>'18', 'bln'=>'Jun 2026', 'nama'=>'Paket Turki Murah 10 Hari',      'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Delphin Palace',   'hotel_mak'=>'CVK Park Bosphorus','harga'=>'28,9','seat'=>true],
+  ['tgl'=>'04', 'bln'=>'Jul 2026', 'nama'=>'Paket Raja Ampat 6 Hari',        'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Papua Paradise',   'hotel_mak'=>'Misool Eco Resort','harga'=>'28,9','seat'=>true],
+  ['tgl'=>'04', 'bln'=>'Sep 2026', 'nama'=>'Paket Korea Selatan 9 Hari',     'badges'=>['Direct','Tour TH'], 'hotel_mad'=>'Lotte City Hotel', 'hotel_mak'=>'Shilla Stay',    'harga'=>'28,9', 'seat'=>true],
+  ['tgl'=>'18', 'bln'=>'Jun 2026', 'nama'=>'Paket Dubai Mewah 8 Hari',       'badges'=>['Transit','Tour TH'],'hotel_mad'=>'Address Downtown','hotel_mak'=>'Atlantis Palm',  'harga'=>'28,5', 'seat'=>true],
+];
+foreach (array_slice($jadwal, 0, 3) as $j): 
+  $isTrans = in_array('Transit', $j['badges']);
+?>
     <div class="jadwal-card">
       <div class="jadwal-date-box">
         <div class="day"><?= $j['tgl'] ?></div>
