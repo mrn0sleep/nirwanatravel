@@ -538,13 +538,13 @@ $base_url = "http://localhost/nirwanatravel/";
       <!-- MENU TENGAH -->
       <ul class="navbar-nav mx-auto gap-3">
         <li class="nav-item">
-          <a class="nav-link" href="index.php#beranda">Beranda</a>
+          <a class="nav-link" href="../index.php#beranda">Beranda</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Layanan</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.php#layanan">Keberangkatan Terdekat</a></li>
-            <li><a class="dropdown-item" href="index.php#layanan">Jenis-jenis Layanan</a></li>
+            <li><a class="dropdown-item" href="../layanan/layanan.php#keberangkatan-terdekat">Keberangkatan Terdekat</a></li>
+            <li><a class="dropdown-item" href="../layanan/layanan.php#jenis-layanan">Jenis-jenis Layanan</a></li>
           </ul>
         </li>
         <li class="nav-item">
