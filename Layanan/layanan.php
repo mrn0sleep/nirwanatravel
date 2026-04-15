@@ -1062,14 +1062,14 @@ $base_url = "http://localhost/nirwanatravel/";
 
   <?php
   $layanan = [
-    ['icon'=>'🏝️','thumb'=>'thumb-1','judul'=>'Paket Wisata Lokal',       'desc'=>'Nikmati keindahan wisata nusantara dengan paket perjalanan terjangkau dan menyenangkan.','link'=>$base_url.'detail/detail_layanan.php?id=1'],
-    ['icon'=>'✈️','thumb'=>'thumb-2','judul'=>'Paket Wisata Mancanegara', 'desc'=>'Jelajahi berbagai destinasi luar negeri dengan layanan lengkap dan terpercaya.',         'link'=>$base_url.'detail/detail_layanan.php?id=2'],
-    ['icon'=>'🎫','thumb'=>'thumb-3','judul'=>'Tiket Pesawat',             'desc'=>'Pesan tiket pesawat domestik maupun internasional dengan harga kompetitif.',              'link'=>$base_url.'detail/detail_layanan.php?id=3'],
-    ['icon'=>'🚌','thumb'=>'thumb-4','judul'=>'Sewa Kendaraan',            'desc'=>'Armada kendaraan nyaman dan bersih siap menemani perjalanan wisata Anda.',                'link'=>$base_url.'detail/detail_layanan.php?id=4'],
-    ['icon'=>'🏨','thumb'=>'thumb-5','judul'=>'Hotel & Penginapan',        'desc'=>'Pilihan akomodasi terbaik dari budget hingga bintang lima di berbagai kota.',             'link'=>$base_url.'detail/detail_layanan.php?id=5'],
-    ['icon'=>'💑','thumb'=>'thumb-6','judul'=>'Paket Honeymoon',           'desc'=>'Rayakan momen spesial bersama pasangan dengan paket romantis pilihan kami.',              'link'=>$base_url.'detail/detail_layanan.php?id=6'],
-    ['icon'=>'🕌','thumb'=>'thumb-7','judul'=>'Wisata Religi',             'desc'=>'Perjalanan spiritual penuh makna ke destinasi religi dalam dan luar negeri.',             'link'=>$base_url.'detail/detail_layanan.php?id=7'],
-    ['icon'=>'👥','thumb'=>'thumb-8','judul'=>'Paket Grup & Rombongan',    'desc'=>'Layanan wisata khusus grup, instansi, maupun corporate dengan harga spesial.',           'link'=>$base_url.'detail/detail_layanan.php?id=8'],
+    ['icon'=>'🏝️','thumb'=>'thumb-1','judul'=>'Paket Wisata Lokal',       'desc'=>'Nikmati keindahan wisata nusantara dengan paket perjalanan terjangkau dan menyenangkan.','link'=>'../detail/detail_layanan.php?id=1'],
+    ['icon'=>'✈️','thumb'=>'thumb-2','judul'=>'Paket Wisata Mancanegara', 'desc'=>'Jelajahi berbagai destinasi luar negeri dengan layanan lengkap dan terpercaya.',         'link'=>'../detail/detail_layanan.php?id=2'],
+    ['icon'=>'🎫','thumb'=>'thumb-3','judul'=>'Tiket Pesawat',             'desc'=>'Pesan tiket pesawat domestik maupun internasional dengan harga kompetitif.',              'link'=>'../detail/detail_layanan.php?id=3'],
+    ['icon'=>'🚌','thumb'=>'thumb-4','judul'=>'Sewa Kendaraan',            'desc'=>'Armada kendaraan nyaman dan bersih siap menemani perjalanan wisata Anda.',                'link'=>'../detail/detail_layanan.php?id=4'],
+    ['icon'=>'🏨','thumb'=>'thumb-5','judul'=>'Hotel & Penginapan',        'desc'=>'Pilihan akomodasi terbaik dari budget hingga bintang lima di berbagai kota.',             'link'=>'../detail/detail_layanan.php?id=5'],
+    ['icon'=>'💑','thumb'=>'thumb-6','judul'=>'Paket Honeymoon',           'desc'=>'Rayakan momen spesial bersama pasangan dengan paket romantis pilihan kami.',              'link'=>'../detail/detail_layanan.php?id=6'],
+    ['icon'=>'🕌','thumb'=>'thumb-7','judul'=>'Wisata Religi',             'desc'=>'Perjalanan spiritual penuh makna ke destinasi religi dalam dan luar negeri.',             'link'=>'../detail/detail_layanan.php?id=7'],
+    ['icon'=>'👥','thumb'=>'thumb-8','judul'=>'Paket Grup & Rombongan',    'desc'=>'Layanan wisata khusus grup, instansi, maupun corporate dengan harga spesial.',           'link'=>'../detail/detail_layanan.php?id=8'],
   ];
   ?>
 
