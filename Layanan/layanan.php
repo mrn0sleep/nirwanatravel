@@ -873,7 +873,7 @@ $base_url = "http://localhost/nirwanatravel/";
 <nav class="navbar" id="mainNav">
   <div class="nav-inner">
     <a class="nav-logo" href="index.php">
-      <img src="img/logo.PNG" alt="Nirwana">
+      <img src="../img/logo.PNG" alt="Nirwana">
       <div class="nav-logo-text">
         Nirwana
         <small>Tour & Travel</small>
