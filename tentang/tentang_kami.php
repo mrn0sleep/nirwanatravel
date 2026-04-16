@@ -548,7 +548,6 @@ $base_url = "http://localhost/nirwanatravel/";
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="kontak.php">Hubungi Kami</a>
         </li>
         <li class="nav-item">
           <!-- Link aktif di halaman ini -->
@@ -941,7 +940,6 @@ $base_url = "http://localhost/nirwanatravel/";
           <li><a href="tentang.php">Tentang Kami</a></li>
           <li><a href="index.php#layanan">Layanan</a></li>
           <li><a href="index.php#keunggulan">Keunggulan</a></li>
-          <li><a href="kontak.php">Hubungi Kami</a></li>
         </ul>
       </div>
 
@@ -960,7 +958,6 @@ $base_url = "http://localhost/nirwanatravel/";
 
       <!-- Kolom 4: Kontak -->
       <div class="col-lg-4">
-        <p class="footer-heading">Hubungi Kami</p>
         <div class="footer-kontak-item"><i class="bi bi-geo-alt-fill"></i><span>Jl. Diponegoro No. 45, Kota Batu, Jawa Timur 65314</span></div>
         <div class="footer-kontak-item"><i class="bi bi-whatsapp"></i><span>+62 856-4010-0555</span></div>
         <div class="footer-kontak-item"><i class="bi bi-telephone-fill"></i><span>(0341) 592-1234</span></div>

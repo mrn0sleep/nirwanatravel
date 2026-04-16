@@ -936,7 +936,6 @@ $base_url = "http://localhost/nirwanatravel/";
           </a>
         </div>
       </li>
-      <li><a href="kontak.php">Hubungi Kami</a></li>
       <li><a href="tentang/tentang_kami.php">Tentang Kami</a></li>
     </ul>
 
@@ -974,7 +973,6 @@ $base_url = "http://localhost/nirwanatravel/";
     <a href="layanan/layanan.php#keberangkatan">— Keberangkatan Terdekat</a>
     <a href="layanan/layanan.php#jenis-layanan">— Jenis-jenis Layanan</a>
   </div>
-  <a href="kontak.php">Hubungi Kami</a>
   <a href="tentang/tentang_kami.php">Tentang Kami</a>
   <div class="mobile-auth">
     <?php if ($isLoggedIn): ?>
@@ -1141,7 +1139,6 @@ $base_url = "http://localhost/nirwanatravel/";
       <h4>Navigasi</h4>
       <a href="index.php">Beranda</a>
       <a href="layanan/layanan.php">Layanan</a>
-      <a href="kontak.php">Hubungi Kami</a>
       <a href="tentang/tentang_kami.php">Tentang Kami</a>
     </div>
     <div class="footer-col">
